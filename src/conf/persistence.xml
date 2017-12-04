@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="Spring_LaptopPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.tienlun.model.Attach</class>
+    <class>com.tienlun.model.Category</class>
+    <class>com.tienlun.model.Comment</class>
+    <class>com.tienlun.model.Feedback</class>
+    <class>com.tienlun.model.OrderDetail</class>
+    <class>com.tienlun.model.Orders</class>
+    <class>com.tienlun.model.PriceHistory</class>
+    <class>com.tienlun.model.Product</class>
+    <class>com.tienlun.model.Roles</class>
+    <class>com.tienlun.model.Users</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/shop?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+    </properties>
+  </persistence-unit>
+</persistence>

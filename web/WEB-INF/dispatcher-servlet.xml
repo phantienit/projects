@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+                http://www.springframework.org/schema/mvc
+                http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- declaring base package -->
+    <context:annotation-config />
+    <context:component-scan base-package="com.tienlun.controller" />
+     
+    <!--delaring properties file-->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames" value="WEB-INF/properties/Messages"/>
+    </bean>
+    
+    <!-- adding view resolver to show jsp's on browser -->
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+    <bean id="categoryDAO" class="com.tienlun.dao.CategoryDAO" />
+    <bean id="categoryService" class="com.tienlun.service.CategoryService" />
+    
+    <bean id="poductDAO" class="com.tienlun.dao.ProductDAO" />
+    <bean id="poductService" class="com.tienlun.service.ProductService" />
+    
+    <bean id="usersDAO" class="com.tienlun.dao.UsersDAO" />
+    <bean id="usersService" class="com.tienlun.service.UsersService" />
+    
+    <mvc:resources mapping="/resources/**" location="/resources/" cache-period="31556926"/>
+    <mvc:annotation-driven />
+
+</beans>
